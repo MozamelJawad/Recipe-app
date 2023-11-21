@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
+  devise_for :users
+
+  # authenticated :user do
+  #   root 'home#dashboard', as: :authenticated_root
+  # end
+
+  # unauthenticated :user do
+  #   root 'home#index', as: :unauthenticated_root
+  # end
+
   root 'home#index'
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
