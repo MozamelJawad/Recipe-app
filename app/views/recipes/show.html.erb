@@ -3,5 +3,12 @@
   <p><strong>Description:</strong> <%= @recipe.description %></p>
   <p><strong>Preparation Time:</strong> <%= @recipe.preparation_time %>h./hs.</p>
   <p><strong>Cooking Time:</strong> <%= @recipe.cooking_time %>h./hs.</p>
+  <p><strong>State of Public:</strong> <%= @recipe.public %></p>
+  <%= form_with(model: @recipe, url: toggle_public_recipe_path(@recipe), method: :patch) do |form| %>
+    <%= form.button @recipe.public ? 'Make Private' : 'Make Public', class: 'btn btn-primary btn-sm' %>
+  <% end %>  
   <%= link_to 'Back to Recipes', recipes_path, class: 'btn btn-secondary' %>
+  <% if current_user == @recipe.user %>
+    <%= link_to 'Add Food', new_food_path, class: 'btn btn-primary float-end mb-5' %>
+  <% end %>
 </div>
