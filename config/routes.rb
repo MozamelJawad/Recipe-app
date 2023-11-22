@@ -11,7 +11,12 @@ Rails.application.routes.draw do
 
 
   resources :foods, except: [:update]
-  resources :recipes, except: [:update]
+  resources :recipes do
+    member do
+      patch 'toggle_public'
+    end
+  end
+
 
   get "up" => "rails/health#show", as: :rails_health_check
 
