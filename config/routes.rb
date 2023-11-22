@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
 
   resources :foods, except: [:update]
-
+  resources :recipes, except: [:update]
 
   get "up" => "rails/health#show", as: :rails_health_check
 
