@@ -1,7 +1,7 @@
 <div class="col-md-6">
 <h2>Add New Recipe</h2>
 <hr class="border border-primary border-2 opacity-50">
-<%= form_with(model: @recipes, url: recipes_path, local: true) do |form| %>
+<%= form_with(model: @recipe, url: recipes_path, local: true) do |form| %>
 
   <div class="mb-3">
     <%= form.label :name, style: "display: block",class: "fw-bold form-label" %>
@@ -24,8 +24,8 @@
   </div>
 
   <div class="mb-3">
-  <%= form.label :public, class: "fw-bold form-label", style: "display: block" %>
-  <%= form.check_box :public, class: "form-check-input", placeholder: "Public recipe?" %>
+  <%= form.label :public, class: "fw-bold form-label me-3" %>
+  <%= form.check_box :public, class: "form-check-input" %>
   </div>
 
 

@@ -5,10 +5,6 @@ Rails.application.routes.draw do
       root 'foods#index', as: :authenticated_root
     end
 
-    authenticated :user do
-      'recipes#index'
-    end
-
     unauthenticated :user do
       root 'home#index', as: :unauthenticated_root
     end
