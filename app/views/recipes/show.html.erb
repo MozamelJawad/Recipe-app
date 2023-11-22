@@ -1,0 +1,7 @@
+<div class="col-md-10">
+  <h1><%= @recipe.name %></h1>
+  <p><strong>Description:</strong> <%= @recipe.description %></p>
+  <p><strong>Preparation Time:</strong> <%= @recipe.preparation_time %>h./hs.</p>
+  <p><strong>Cooking Time:</strong> <%= @recipe.cooking_time %>h./hs.</p>
+  <%= link_to 'Back to Recipes', recipes_path, class: 'btn btn-secondary' %>
+</div>
