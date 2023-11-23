@@ -1,14 +1,42 @@
-<div class="col-md-10">
-  <h1><%= @recipe.name %></h1>
-  <p><strong>Description:</strong> <%= @recipe.description %></p>
-  <p><strong>Preparation Time:</strong> <%= @recipe.preparation_time %>h./hs.</p>
-  <p><strong>Cooking Time:</strong> <%= @recipe.cooking_time %>h./hs.</p>
-  <p><strong>State of Public:</strong> <%= @recipe.public %></p>
-  <%= form_with(model: @recipe, url: toggle_public_recipe_path(@recipe), method: :patch) do |form| %>
-    <%= form.button @recipe.public ? 'Make Private' : 'Make Public', class: 'btn btn-primary btn-sm' %>
+<div class="col-md-8">
+  <h1 class="text-center"><%= @recipe.name %></h1>
+    <%= form_with(model: @recipe, url: toggle_public_recipe_path(@recipe), method: :patch) do |form| %>
+    <%= form.button @recipe.public ? 'Make Private' : 'Make Public', class: 'btn btn-primary btn-sm float-end' %>
   <% end %>  
-  <%= link_to 'Back to Recipes', recipes_path, class: 'btn btn-secondary' %>
+  <p><strong>Preparation Time:</strong> <%= @recipe.preparation_time %> <%= "hour".pluralize(@recipe.preparation_time) %></p>
+  <p><strong>Cooking Time:</strong> <%= @recipe.cooking_time  %> <%= "hour".pluralize(@recipe.cooking_time) %></p>
+  <p><strong>State of Public:</strong> <%= @recipe.public %></p>
+  <p><%= @recipe.description%> </p>
+
+  <%= link_to 'Generate Shopping List', recipes_path, class: 'btn btn-primary' %>
   <% if current_user == @recipe.user %>
-    <%= link_to 'Add Food', new_food_path, class: 'btn btn-primary float-end mb-5' %>
+    <%= link_to 'Add Ingredient', new_recipe_recipe_food_path(@recipe.id) , class: 'btn btn-primary float-end' %>
   <% end %>
+  <hr class="border border-success border-2 opacity-50">
+
+<table class="table table-striped">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">Food</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Value</th>
+      <th scope="col" class="text-center">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+
+  <% @recipe_foods.each do |recipe_food| %>
+    <tr>
+      <td><%= recipe_food.food.name %></td>
+      <td><%= recipe_food.quantity %> </td>
+      <td>$ <%= recipe_food.quantity * recipe_food.food.price %> </td>
+      <td class="text-center">
+        <%= button_to 'Remove', recipe_recipe_food_path(@recipe, recipe_food), method: :delete, data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, class: 'btn btn-danger float-start btn-sm' %>
+        <%= link_to 'Modify', edit_recipe_recipe_food_path(@recipe, recipe_food), class: 'btn btn-info btn-sm' %>
+
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
 </div>

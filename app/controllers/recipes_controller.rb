@@ -27,12 +27,17 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
+    @recipe_foods = @recipe.recipe_foods
   end
 
   def toggle_public
     @recipe = Recipe.find(params[:id])
     @recipe.update(public: !@recipe.public)
     redirect_to @recipe, notice: 'Recipe updated successfully.'
+  end
+
+  def public_recipes
+    @recipes = Recipe.where(public: true).order(id: :desc)
   end
 
   private

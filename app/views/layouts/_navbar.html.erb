@@ -9,14 +9,12 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <%= link_to 'Foods List', foods_path, class: 'nav-link text-light' %>
-          <%# <a class="nav-link text-light" href="#">Foods List</a> %>
         </li>
         <li class="nav-item">
         <%= link_to 'Recipes List', recipes_path, class: 'nav-link text-light' %>
-        <%# <a class="nav-link text-light" href="#">Recipes List</a> %>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-light" href="#">Public Recipes</a>
+          <%= link_to 'Public Recipes', public_recipes_path, class: 'nav-link text-light' %>
         </li>
         <li class="nav-item">
           <a class="nav-link text-light" href="#">General Shopping List</a>
@@ -25,7 +23,7 @@
           <% else %>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-                <a class="nav-link text-light" href="#">Public Recipes</a>
+              <%= link_to 'Public Recipes', public_recipes_path, class: 'nav-link text-light' %>
             </li>
         </ul>
       <% end %>
