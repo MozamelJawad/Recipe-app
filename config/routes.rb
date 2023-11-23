@@ -9,7 +9,6 @@ Rails.application.routes.draw do
       root 'home#index', as: :unauthenticated_root
     end
 
-
   resources :foods, except: [:update]
   resources :recipes do
     member do
