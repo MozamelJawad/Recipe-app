@@ -17,5 +17,6 @@
       <p>Total Price: <%= recipe.recipe_foods.sum { |recipe_food| recipe_food.food.price * recipe_food.quantity} %></p>
     </div>
     </>
+    
   <% end %>
 </div>
