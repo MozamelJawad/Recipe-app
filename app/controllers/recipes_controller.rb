@@ -26,8 +26,16 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipes = Recipes.find(params[:id])
+    @recipe = Recipe.find(params[:id])
   end
+
+  def toggle_public
+    @recipe = Recipe.find(params[:id])
+    @recipe.update(public: !@recipe.public)
+    redirect_to @recipe, notice: 'Recipe updated successfully.'
+  end
+
+  private
 
   def recipe_params
     params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public)
