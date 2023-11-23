@@ -1,15 +1,16 @@
-<div class="col-md-10">
+<div class="col-md-8">
   <%= link_to 'Add Recipe', new_recipe_path, class: 'btn btn-primary float-end' %>
-  <h2>List of Recipes</h2>
+  <h2 class="mb-5">List of Recipes</h2>
 
   <% @recipes.each do |recipe| %>
     <div class="border p-4 mb-2">
-      <h2><%= recipe.name %></h2>
-      <p><%= recipe.description %></p>
-      
+    <%= link_to recipe_path(recipe.id), class: 'remove_link' do %>
+    <div class="d-flex mb-3">
+      <h2 style="width:150px"><%= recipe.name %></h2>
+    <% end %>
+      <p class="ms-5"><%= recipe.description %></p>
+    </div>
       <%= button_to 'Remove', recipe_path(recipe.id), method: :delete, data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, class: 'btn btn-danger btn-sm' %>
-
-      <%= link_to 'View Details', recipe_path(recipe.id), class: 'btn btn-info btn-sm' %>
     </div>
   <% end %>
 </div>
