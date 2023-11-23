@@ -8,7 +8,6 @@ class RecipesController < ApplicationController
     @user = current_user
   end
 
-
   def create
     @recipes = current_user.recipes.build(recipe_params)
 
