@@ -1,0 +1,37 @@
+<div class="col-md-8 offset-md-2">
+<h2>Add New Recipe</h2>
+<hr class="border border-primary border-2 opacity-50">
+<%= form_with(model: @recipe, url: recipes_path, local: true) do |form| %>
+
+  <div class="mb-3">
+    <%= form.label :name, style: "display: block",class: "fw-bold form-label" %>
+    <%= form.text_field :name, class: "form-control", placeholder: "Recipe Name" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :preparation_time, style: "display: block",class: "fw-bold form-label" %>
+    <%= form.text_field :preparation_time, class: "form-control", placeholder: "Preparation time" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :cooking_time, style: "display: block",class: "fw-bold form-label" %>
+    <%= form.text_field :cooking_time, class: "form-control", placeholder: "Cooking time" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :description, style: "display: block",class: "fw-bold form-label" %>
+    <%= form.text_area :description, class: "form-control", placeholder: "Description" %>
+  </div>
+
+  <div class="mb-3">
+  <%= form.label :public, class: "fw-bold form-label me-3" %>
+  <%= form.check_box :public, class: "form-check-input" %>
+  </div>
+
+
+   <div class="mb-3">
+    <%= form.submit "Create Recipe", class: 'btn btn-primary' %>
+  </div>
+
+<% end %>
+</div>

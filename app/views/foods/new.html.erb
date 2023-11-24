@@ -1,0 +1,31 @@
+<div class="col-md-6 offset-md-3 ">
+<h2>Add New Food</h2>
+<hr class="border border-primary border-2 opacity-50">
+<%= form_with(model: @food, url: foods_path, local: true) do |form| %>
+
+  <div class="mb-3">
+    <%= form.label :name, style: "display: block",class: "fw-bold form-label" %>
+    <%= form.text_field :name, class: "form-control", placeholder: "Food Name" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :measurement_unit, style: "display: block",class: "fw-bold form-label" %>
+    <%= form.text_field :measurement_unit, class: "form-control", placeholder: "Measurement Unit" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :price, style: "display: block",class: "fw-bold form-label" %>
+    <%= form.text_field :price, class: "form-control", placeholder: "Food Price" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :quantity, style: "display: block",class: "fw-bold form-label" %>
+    <%= form.text_field :quantity, class: "form-control", placeholder: "Food Quantity" %>
+  </div>
+
+   <div class="mb-3">
+    <%= form.submit "Create Food", class: 'btn btn-primary' %>
+  </div>
+
+<% end %>
+</div>

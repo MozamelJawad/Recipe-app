@@ -1,0 +1,27 @@
+<div class="col-md-10 offset-md-1">
+   
+  <h2 class="mb-5">Public Recipes</h2>
+
+  <% @recipes.each do |recipe| %>
+    <div class="border p-2 mb-2">
+    <%= link_to recipe_path(recipe.id), class: 'remove_link' do %>
+    <div class="d-flex mb-3">
+      <h3 style="width:400px "><%= recipe.name %> <span class="text-info"> <br> by: </span> <span class="text-success"> <%= recipe.user.name %> </span> </h3>
+
+    <% end %>
+      
+      <div class="px-5 mx-5">
+      <p>Total Food Items: <%= recipe.recipe_foods.length %></p>
+      <p>Total Price: <%= recipe.recipe_foods.sum { |recipe_food| recipe_food.food.price * recipe_food.quantity} %></p>
+    </div>
+    </div>
+
+    <% if can? :destroy, recipe %>
+      <% if current_user && current_user == recipe.user %>
+      <%= button_to 'Remove', recipe_path(recipe.id), method: :delete, data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, class: 'btn btn-danger btn-sm' %>
+    <% end %>
+    <% end %>
+    </div>
+  <% end %>
+
+</div>
