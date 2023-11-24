@@ -8,7 +8,7 @@
   <p><strong>State of Public:</strong> <%= @recipe.public %></p>
   <p><%= @recipe.description%> </p>
 
-  <%= link_to 'Generate Shopping List', recipes_path, class: 'btn btn-primary' %>
+  <%= link_to 'Generate Shopping List', shopping_list_path , class: 'btn btn-primary' %>
   <% if current_user == @recipe.user %>
     <%= link_to 'Add Ingredient', new_recipe_recipe_food_path(@recipe.id) , class: 'btn btn-primary float-end' %>
   <% end %>
