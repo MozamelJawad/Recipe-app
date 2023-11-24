@@ -1,6 +1,8 @@
 <div class="col-md-8 offset-md-2">
   <h2 class="text-center">Shopping List</h2>
 
+  <% if @foods.present? %>
+
   <div id="shopping-info">
     <div>
       <hp>Amount of food to buy: <%= @foods.length %> </hp>
@@ -26,5 +28,10 @@
       <% end %>
     </tbody>
   </table>
+    <% else %>
+    <h3 class="text-center text-info mt-5">There is no shopping list.</h3>
+  <% end%>
+
+
 
 </div>
