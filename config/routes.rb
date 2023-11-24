@@ -17,7 +17,8 @@ Rails.application.routes.draw do
   resources :recipe_foods
   end
 
-  get 'shopping_list' => 'shopping_list#index.html.erb', as: :shopping_lists
+  # resources 'shopping_list', only: [:index]
+  get 'shopping_list' => 'shopping_lists#index', as: :shopping_list
   get 'public_recipes' => 'recipes#public_recipes', as: :public_recipes
 
   get "up" => "rails/health#show", as: :rails_health_check
