@@ -1,17 +1,20 @@
 <div class="col-md-8">
   <h1 class="text-center"><%= @recipe.name %></h1>
     <%= form_with(model: @recipe, url: toggle_public_recipe_path(@recipe), method: :patch) do |form| %>
+    <% if current_user == @recipe.user %>
     <%= form.button @recipe.public ? 'Make Private' : 'Make Public', class: 'btn btn-primary btn-sm float-end' %>
+    <% end %>
   <% end %>  
   <p><strong>Preparation Time:</strong> <%= @recipe.preparation_time %> <%= "hour".pluralize(@recipe.preparation_time) %></p>
   <p><strong>Cooking Time:</strong> <%= @recipe.cooking_time  %> <%= "hour".pluralize(@recipe.cooking_time) %></p>
   <p><strong>State of Public:</strong> <%= @recipe.public %></p>
   <p><%= @recipe.description%> </p>
 
-  <%= link_to 'Generate Shopping List', shopping_list_path , class: 'btn btn-primary' %>
   <% if current_user == @recipe.user %>
-    <%= link_to 'Add Ingredient', new_recipe_recipe_food_path(@recipe.id) , class: 'btn btn-primary float-end' %>
-  <% end %>
+
+  <%= link_to 'Generate Shopping List', shopping_list_path , class: 'btn btn-primary' %>
+  <%= link_to 'Add Ingredient', new_recipe_recipe_food_path(@recipe.id) , class: 'btn btn-primary float-end' %>
+
   <hr class="border border-success border-2 opacity-50">
 
 <table class="table table-striped">
@@ -39,4 +42,5 @@
     <% end %>
   </tbody>
 </table>
+<% end %>
 </div>
