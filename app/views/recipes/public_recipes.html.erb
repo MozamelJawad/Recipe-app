@@ -5,11 +5,15 @@
   <% @recipes.each do |recipe| %>
     <div class="border p-4 mb-2 d-flex flex-row mb-3">
     <%= link_to recipe_path(recipe.id), class: 'remove_link' do %>
-    <div class="div1">
+      <div class="div1">
       <h2><%= recipe.name %></h2>
-       <% end %>
+      <% end %>
       <h4 class="mb-3"> by: <%= recipe.user.name %></h4>
+    
+      <% if current_user && current_user == recipe.user %>
         <%= button_to 'Remove', recipe_path(recipe.id), method: :delete, data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, class: 'btn btn-danger btn-sm' %>
+      <% else %>
+      <% end %>
     </div>
        
     <div class="px-5 mx-5">
