@@ -1,5 +1,7 @@
-<div class="col-md-10">
+<div class="col-md-10 offset-md-1">
 <%= link_to 'Add Food', new_food_path, class: 'btn btn-primary float-end mb-5' %>
+
+<% if @foods.present? %>
 
 <table class="table table-striped">
   <thead class="table-dark">
@@ -28,4 +30,8 @@
 
   </tbody>
 </table>
+
+<% else %>
+  <h3 class="text-center text-info">No Food Items, Please Add New One</h3>
+<% end %>
 </div>
