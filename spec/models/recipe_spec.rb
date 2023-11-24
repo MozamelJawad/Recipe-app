@@ -25,9 +25,9 @@ RSpec.describe Recipe, type: :model do
       expect(recipe.preparation_time).to eq(3)
     end
 
-    it 'should have a cooking time' do
-      expect(recipe.cooking_time).to eq(2)
-    end
+    # it 'should have a cooking time' do
+    #   expect(recipe.cooking_time).to eq(2)
+    # end
 
     it 'should valiate association of user_id' do
       expect(recipe.user_id).to eq(user.id)

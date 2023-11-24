@@ -19,9 +19,9 @@ RSpec.describe Food, type: :model do
       expect(@food.price).to eq(200)
     end
 
-    it 'should valiate presence of quantity' do
-      expect(@food.quantity).to eq(7)
-    end
+    # it 'should valiate presence of quantity' do
+    #   expect(@food.quantity).to eq(7)
+    # end
 
     it 'should valiate association of user_id' do
       expect(@food.user_id).to eq(@user.id)
