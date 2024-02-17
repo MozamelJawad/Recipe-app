@@ -27,7 +27,7 @@ The **Recipe app** keeps track of all your recipes, and ingredients. It will all
 
 ## 🛠 Built With <a name="built-with"></a>
 
-Ruby, Ruby on Rails, Postgresql, Visual Studia Code
+Ruby, Ruby on Rails, Postgresql, Visual Studio Code (VS Code)
 
 ### Tech Stack <a name="tech-stack"></a>
 
@@ -56,7 +56,7 @@ Ruby, Ruby on Rails, Postgresql, Visual Studia Code
 
 ### Setup <a name="setup"></a>
 
-In order to use this project.. Clone this repository to your desired folder by:
+To use this project... Clone this repository to your desired folder by:
 
 - git clone https://github.com/MozamelJawad/Recipe-app.git
 
