@@ -3,7 +3,6 @@
 <a name="readme-top"></a>
 
 # 📗 Table of Contents
-
 - [📖 About the Project](#about-project)
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
@@ -92,7 +91,6 @@ To test, run:
 ```
 RSpec
 ```
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 👥 Authors <a name="authors"></a>
